@@ -7,9 +7,7 @@
 [Prisma ORM](https://www.prisma.io/docs/getting-started/quickstart)
 
 [Express](https://expressjs.com/pt-br/guide/routing.html)
-
 #
-
 ## 1 - Iniciar Projeto
 
 ```js
@@ -19,22 +17,20 @@
 
   npm init -y
 ```
-
 <h3 style="color:orange">Documentação "npm init": <a href="https://docs.npmjs.com/cli/v9/commands/npm-init">LINK</a> </h3>
-<br/>
 
 #
 ## 2 - Configurar Ambiente para desenvolvimento
 
 ```py
-  """Instalar Nodemon (devDependencies)"""
+  #Instalar Nodemon (devDependencies)
 
   npm install nodemon -D
   
 ```
 
 ```py
-  """Adicionar script para servidor atualizar ao modificar arquivos"""
+  #Adicionar script para servidor atualizar ao modificar arquivos
 
   # package.json
   
@@ -45,7 +41,6 @@
   },
 ```
 <h3 style="color:orange">Documentação "nodemon": <a href="https://github.com/remy/nodemon#nodemon">LINK</a> </h3>
-<br/>
 
 #
 ## 3 - Configuração Incial Express
@@ -87,13 +82,11 @@
   <a href="https://www.npmjs.com/package/express">LINK</a> 
 </h3>
 
-<br/>
-
 #
 ## 4 - Testar Aplicação
 
 ```js
-  //Inciar Aplicação
+  //Iniciar Aplicação
 
   npm run dev
 
@@ -110,30 +103,31 @@
 ```
 
 ```js
-  //Abrir projeto no navegar em "http://localhost:PORTA_ESCOLHIDA"
+  //Abrir projeto no navegador em "http://localhost:PORTA_ESCOLHIDA"
   
-  Deve aparece uma mensagem escrita "Cannot GET /"
+  Deve aparecer uma mensagem escrita "Cannot GET /"
 ```
 
 
 #
 ## 5 - Cadastrar Rotas (Por enquanto, sem manipulação do banco de dados)
 
-```js
-  //Exemplo da estrutura 
-
-  router.METODO("/NOME_RECURSO", (request,reponse) => {
-    response.status(200).send("Hello World!!");
-  })
-
-  //resquest e response - poderiam ser "queijo" e "uva", mas o ideal é usar nome que fazem sentido
-```
 <br/>
 <img src="./img/structure.png" style="width:100%"/>
 <h3 style="color:orange">Estrutura de uma URL: 
   <a href="https://dev.to/dnovais/estrutura-de-uma-url-357e">LINK</a> 
 </h3>
 <br/>
+
+```js
+  //Exemplo de estrutura 
+
+  router.METODO("/NOME_RECURSO", (request,reponse) => {
+    response.status(200).send("Hello World!!");
+  })
+
+  //resquest e response - poderiam ser "queijo" e "uva", mas o ideal é usar nomes que fazem sentido
+```
 
 ```js
   // routes/user
@@ -220,7 +214,8 @@
   
   - Teste cada requisição 
   
-  - Se alguma requeisão retornar 404, provavelmente o nome da rota esta errado
+  - Se alguma requeisão retornar 404, provavelmente algo na rota esta errado
+    - Observe como foi definido no arquivo de configuração das rotas
 
 ```
 
@@ -297,7 +292,7 @@
 </h3>
 
 ```js
-  // service/user.jss
+  // service/user.js
   
   const prisma = require("../db/prisma"); // instancia do prisma
 
@@ -312,7 +307,7 @@
       data: {
         name,
         email,
-        password: hashedPassword
+        password
       }
     });
   }
@@ -324,7 +319,7 @@
       data: {
         name,
         email,
-        password: hashedPassword
+        password
       }
     });
   };
@@ -417,6 +412,10 @@
   <a href="https://www.thunderclient.com/">LINK</a> 
 </h3>
 
+<h3 style="color:orange">O que é JSON?: 
+  <a href="https://www.alura.com.br/artigos/o-que-e-json">LINK</a> 
+</h3>
+
 ```js
 GET ttp://localhost:PORT/users
 
@@ -445,3 +444,6 @@ DELETE http://localhost:PORT/user/1
 #
 ## 12 - Criar algo semelhante para outras tabelas
 <img src="./img/dog-senior.gif"/>
+
+
+## Em breve...
